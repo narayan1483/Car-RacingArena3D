@@ -1,0 +1,95 @@
+body{
+margin:0;
+overflow:hidden;
+}
+
+#gameCanvas{
+width:100%;
+height:100%;
+display:block;
+}
+
+/* forms */
+
+form{
+background:#111;
+padding:30px;
+border-radius:10px;
+width:300px;
+margin:100px auto;
+box-shadow:0 0 20px red;
+}
+
+/* input */
+
+input{
+width:90%;
+padding:10px;
+margin:10px;
+border:none;
+border-radius:5px;
+}
+
+/* button */
+
+button{
+padding:10px 25px;
+background:red;
+border:none;
+color:white;
+font-size:16px;
+border-radius:5px;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+background:orange;
+transform:scale(1.1);
+}
+
+/* leaderboard */
+
+table{
+margin:auto;
+border-collapse:collapse;
+width:60%;
+background:#111;
+}
+
+th,td{
+padding:12px;
+border:1px solid #444;
+}
+
+th{
+background:red;
+}
+
+/* HUD */
+
+.hud{
+position:absolute;
+top:10px;
+left:10px;
+font-size:20px;
+color:white;
+text-shadow:0 0 10px red;
+}
+
+/* game over */
+
+.gameover{
+position:absolute;
+top:40%;
+left:50%;
+transform:translate(-50%,-50%);
+text-align:center;
+font-size:30px;
+animation: pop 0.5s ease;
+}
+
+@keyframes pop{
+0%{transform:scale(0);}
+100%{transform:scale(1);}
+}

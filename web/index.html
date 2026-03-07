@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Car Racing Arena</title>
+    <link rel="stylesheet" href="css/menu.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Animated background layers -->
+<div class="bg-layer"></div>
+<div class="grid-floor"></div>
+<div class="stars" id="stars"></div>
+<div class="speed-lines" id="speedLines"></div>
+
+<!-- Particles -->
+<div class="particles" id="particles"></div>
+
+<!-- Side neon bars -->
+<div class="neon-bar left"></div>
+<div class="neon-bar right"></div>
+
+<!-- Main Menu -->
+<div class="menu">
+
+    <!-- Header -->
+    <div class="menu-header">
+        <div class="car-icon">🏎️</div>
+        <div class="title-block">
+            <h1 class="title-main">Narayan's Turbo Racing</h1>
+            <div class="title-sub">3D EDITION &nbsp;·&nbsp; ULTIMATE EXPERIENCE</div>
+        </div>
+    </div>
+
+    <!-- Tagline -->
+    <p class="tagline">
+        <span class="tag-line">⚡</span>
+        Welcome to the Ultimate Racing Experience
+        <span class="tag-line">⚡</span>
+    </p>
+
+    <!-- Stats bar -->
+    <div class="stats-bar">
+        <div class="stat"><span class="stat-val" id="topSpeed">320</span><span class="stat-label">Top Speed</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-val">5</span><span class="stat-label">Enemy Cars</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-val">3D</span><span class="stat-label">Graphics</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-val">∞</span><span class="stat-label">Tracks</span></div>
+    </div>
+
+    <!-- Buttons -->
+    <nav class="menu-nav">
+
+        <a href="game.jsp" class="btn btn-primary">
+            <span class="btn-bg"></span>
+            <span class="btn-icon">▶</span>
+            <span class="btn-text">Play Game</span>
+            <span class="btn-shine"></span>
+            <span class="btn-tag">START RACE</span>
+        </a>
+
+        <a href="leaderboard.jsp" class="btn btn-secondary">
+            <span class="btn-bg"></span>
+            <span class="btn-icon">🏆</span>
+            <span class="btn-text">Leaderboard</span>
+            <span class="btn-shine"></span>
+            <span class="btn-tag">TOP DRIVERS</span>
+        </a>
+
+        <div class="btn-row">
+            <a href="login.jsp" class="btn btn-outline">
+                <span class="btn-bg"></span>
+                <span class="btn-icon">👤</span>
+                <span class="btn-text">Login</span>
+                <span class="btn-shine"></span>
+            </a>
+            <a href="register.jsp" class="btn btn-outline">
+                <span class="btn-bg"></span>
+                <span class="btn-icon">🎮</span>
+                <span class="btn-text">Register</span>
+                <span class="btn-shine"></span>
+            </a>
+        </div>
+
+    </nav>
+
+    <!-- Footer -->
+    <div class="menu-footer">
+        <div class="footer-flags">🏁 🏁 🏁</div>
+        <div class="footer-text">Use ← → Arrow Keys to Steer &nbsp;|&nbsp; Avoid Enemies &nbsp;|&nbsp; Beat Your Score</div>
+    </div>
+
+    <!-- Developer Credit -->
+    <div class="dev-credit">
+        <span class="dev-dot">⚙</span>
+        Developed by <strong>Narayan Prasad Maurya</strong>
+    </div>
+
+</div>
+
+<!-- RPM Rev Bar -->
+<div class="rpm-wrap">
+    <div class="rpm-label">RPM</div>
+    <div class="rpm-bar" id="rpmBar"></div>
+    <div class="rpm-red">RED</div>
+</div>
+
+<script>
+// ── Stars ──
+const starsEl = document.getElementById('stars');
+for (let i = 0; i < 160; i++) {
+    const s = document.createElement('div');
+    s.className = 'star';
+    const sz = 0.4 + Math.random() * 2;
+    s.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*100}%;
+        width:${sz}px;height:${sz}px;
+        animation-duration:${2+Math.random()*4}s;
+        animation-delay:${Math.random()*4}s;`;
+    starsEl.appendChild(s);
+}
+
+// ── Speed lines ──
+const slEl = document.getElementById('speedLines');
+for (let i = 0; i < 18; i++) {
+    const l = document.createElement('div');
+    l.className = 'speed-line';
+    l.style.cssText = `left:${Math.random()*100}%;
+        animation-duration:${0.6+Math.random()*1.2}s;
+        animation-delay:${Math.random()*2}s;
+        opacity:${0.05+Math.random()*0.12};`;
+    slEl.appendChild(l);
+}
+
+// ── Particles ──
+const partEl = document.getElementById('particles');
+for (let i = 0; i < 22; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    p.style.cssText = `left:${Math.random()*100}%;
+        animation-duration:${3+Math.random()*5}s;
+        animation-delay:${Math.random()*5}s;
+        width:${2+Math.random()*4}px;
+        height:${2+Math.random()*4}px;`;
+    partEl.appendChild(p);
+}
+
+// ── RPM bar ──
+const rpmEl = document.getElementById('rpmBar');
+for (let i = 0; i < 20; i++) {
+    const seg = document.createElement('div');
+    seg.className = 'rpm-seg' + (i > 15 ? ' rpm-red-seg' : i > 11 ? ' rpm-yellow-seg' : ' rpm-green-seg');
+    seg.style.animationDelay = (i * 0.06) + 's';
+    rpmEl.appendChild(seg);
+}
+
+// ── Top speed counter ──
+let spd = 0;
+const spdEl = document.getElementById('topSpeed');
+const spdInterval = setInterval(() => {
+    spd += 7;
+    if (spd >= 320) { spd = 320; clearInterval(spdInterval); }
+    spdEl.textContent = spd;
+}, 30);
+
+// ── Button hover sound visual ──
+document.querySelectorAll('.btn').forEach(btn => {
+    btn.addEventListener('mouseenter', () => {
+        btn.style.setProperty('--shine-x', '0%');
+    });
+});
+</script>
+</body>
+</html>
