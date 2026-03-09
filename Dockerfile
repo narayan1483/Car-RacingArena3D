@@ -1,5 +1,5 @@
-FROM tomcat:9.0
+FROM tomcat:1.01
 
 COPY web /usr/local/tomcat/webapps/ROOT
 
-EXPOSE 8080
+EXPOSE 8082
