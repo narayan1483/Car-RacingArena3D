@@ -217,11 +217,22 @@ All sounds generated via **Web Audio API** — no external files required for ga
 
 ## 📸 Screenshots
 
-> *Add your screenshots here*
-> 
-> `![Main Menu](screenshots/menu.png)`  
-> `![Gameplay](screenshots/game.png)`  
-> `![Leaderboard](screenshots/leaderboard.png)`
+> 📌 Images are stored in `web/assets/` folder in the repository.
+
+### 🏠 Home Screen
+![Home Screen](https://raw.githubusercontent.com/narayan1483/Car-RacingArena3D/master/web/assets/home.png)
+
+### 🎮 Gameplay
+![Gameplay](https://raw.githubusercontent.com/narayan1483/Car-RacingArena3D/master/web/assets/PlayGame.png)
+
+### 🏆 Game Score
+![Game Score](https://raw.githubusercontent.com/narayan1483/Car-RacingArena3D/master/web/assets/GameScore.png)
+
+### 🔐 Login Page
+![Login](https://raw.githubusercontent.com/narayan1483/Car-RacingArena3D/master/web/assets/login.png)
+
+### 📝 Register Page
+![Register](https://raw.githubusercontent.com/narayan1483/Car-RacingArena3D/master/web/assets/register.png)
 
 ---
 
